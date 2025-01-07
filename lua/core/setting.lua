@@ -66,16 +66,10 @@ vim.o.laststatus = 2
 vim.o.autoread = true
 
 -- Set tabstop, shiftwidth, and softtabstop to 3
-vim.o.tabstop = 3
-vim.o.shiftwidth = 3
-vim.o.softtabstop = 3
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
 vim.o.smarttab = true
-
--- Set foldmethod to manual (Fold the files as manual)
-vim.o.foldmethod = "manual"
-
--- Add "**" to the search path
-vim.o.path = vim.o.path .. ",**"
 
 -- search settings
 vim.o.hlsearch = true
@@ -83,11 +77,3 @@ vim.o.incsearch = true
 
 -- scroll settings
 vim.o.scrolloff = 8
-
--- do not swap files
-vim.o.swapfile = false
-vim.o.backup = false
-
--- set split window to open below and to the right
-vim.o.splitbelow = true
-vim.o.splitright = true

@@ -1,5 +1,3 @@
-vim.keymap.set({"n", "v"}, "<F9>", ":! /home/debraj/Desktop/DSA/CPSetup/scripts/ch_test.sh %<cr>", {})
-
 -- Function to load a template for .cpp files
 local function load_cpp_template()
     local template_path = "/home/debraj/Desktop/DSA/CPSetup/Main_Boiler_Template.cpp"
