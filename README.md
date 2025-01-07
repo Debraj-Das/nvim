@@ -5,7 +5,7 @@
 2. Install lua 
 3. If previously ~/.config/nvim exists, then backup it.Then run the following command.
 ```bash
-git clone https://github.com/Debraj-Das/nvimSetup.git ~/.config/nvim
+git clone https://github.com/Debraj-Das/nvim.git ~/.config/nvim
 ```
 4. Only run nvim and start installing all nessary plugins itself. It will take some time for first time.
 
