@@ -29,8 +29,6 @@ vim.keymap.set("i", "<C-h>", "<C-w>", { noremap = true })
 vim.keymap.set("n", "<Leader>n", vim.cmd.tabnew, { noremap = true })
 vim.keymap.set("n", "<Leader>j", vim.cmd.tabprevious, { noremap = true })
 vim.keymap.set("n", "<Leader>k", vim.cmd.tabnext, { noremap = true })
-vim.keymap.set("n", "<Leader>v", "<C-v>", { noremap = true })
-vim.keymap.set("n", "<Leader>r", "<C-r>", { noremap = true })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- [ key bindings
