@@ -47,14 +47,11 @@ vim.o.writebackup = false
 -- Enable syntax highlighting
 vim.cmd("syntax on")
 
--- Set clipboard to unnamed and unnamedplus
-vim.o.clipboard = "unnamed,unnamedplus"
-
 -- Display line numbers
-vim.wo.number = true
+vim.o.number = true
 
 -- Display relative line numbers
-vim.wo.relativenumber = true
+vim.o.relativenumber = true
 
 -- Set backspace behavior
 vim.o.backspace = "2"

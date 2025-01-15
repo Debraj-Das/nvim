@@ -4,7 +4,6 @@ vim.o.foldmethod = "manual"
 -- Add "**" to the search path
 vim.o.path = vim.o.path .. ",**"
 
-
 -- set split window to open below and to the right
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -13,3 +12,5 @@ vim.o.splitright = true
 vim.o.swapfile = false
 vim.o.backup = false
 
+-- Set clipboard to unnamed and unnamedplus
+-- vim.o.clipboard = "unnamed,unnamedplus"
