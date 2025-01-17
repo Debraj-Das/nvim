@@ -16,6 +16,14 @@ return {
 					hide_dotfiles = true,
 					hide_gitignored = false,
 					hide_hidden = true, -- only works on Windows for hidden files/directories
+					hide_by_pattern = { -- uses glob style patterns
+						"*.ipynb",
+						--"*.meta",
+						--"*/src/*/tsconfig.json",
+					},
+					always_show = { -- remains visible even if other settings would normally hide it
+						".gitignored",
+					},
 				},
 			},
 		})

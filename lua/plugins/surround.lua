@@ -1,3 +1,6 @@
 return {
-	"tpope/vim-surround",
+	"echasnovski/mini.surround",
+	config = function()
+		require("mini.surround").setup()
+	end,
 }

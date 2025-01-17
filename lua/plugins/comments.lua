@@ -1,9 +1,10 @@
 return {
-	"terrortylor/nvim-comment",
+	"echasnovski/mini.comment",
 	config = function()
-		local conf = require("nvim_comment")
-		conf.setup({
-			comment_empty = false,
+		require("mini.comment").setup({
+			options = {
+				ignore_blank_line = true,
+			},
 		})
-	end
+	end,
 }

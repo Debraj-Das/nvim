@@ -1,8 +1,8 @@
 vim.keymap.set(
 	"n",
-	"<leader>s",
+	"<leader>sb",
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]],
-	{ desc = "[S]ubstitude Current work", noremap = true }
+	{ desc = "[S]u[B]stitude Current word", noremap = true }
 )
 
 vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>ko", { noremap = true })
