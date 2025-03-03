@@ -2,7 +2,7 @@
 
 ## Setup
 
-1. [Install Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md) (All Installation Method)
+1. [Install Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md) (All Installation Method)  
    **universal installations**
 
 ```bash
@@ -47,7 +47,7 @@ npm -v # Should print "10.9.2".
 3. If previously ~/.config/nvim exists, then backup it
 
 ```bash
-mv -r ~/.config/nvim.bak
+mv -r ~/.config/nvim ~/.config/nvim.bak
 ```
 
 Then run the following command.
@@ -56,21 +56,16 @@ Then run the following command.
 git clone https://github.com/Debraj-Das/nvim.git ~/.config/nvim
 ```
 
-4. Only run nvim and start installing all nessary plugins itself. It will take some time for first time.
-
-5. Install ripgrep command line tool for regex searching inside neovim
+4. Install treesitter-cli for neovim-treesitter and ripgrep for telescope
 
 ```bash
+npm install -g tree-sitter-cli
 sudo apt install ripgrep
 ```
 
-6. Install treesitter-cli for neovim-treesitter
+5. Only run nvim and start installing all nessary plugins itself. It will take some time for first time.
 
-```
-npm install -g tree-sitter-cli
-```
-
-**Enjoy your new neovim setup.**
+**Enjoy your new neovim setup. :)**
 
 ## Some useful information about neovim setup
 
