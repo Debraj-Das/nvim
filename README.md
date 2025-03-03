@@ -1,48 +1,92 @@
 # This Repositories for configuration of neovim
 
 ## Setup
-1. [Install Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
-2. Install lua 
-3. If previously ~/.config/nvim exists, then backup it.Then run the following command.
+
+1. [Install Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md) (All Installation Method)
+   **universal installations**
+
+```bash
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+chmod u+x nvim-linux-x86_64.appimage
+./nvim-linux-x86_64.appimage
+
+# setup globally
+./nvim-linux-x86_64.appimage --appimage-extract
+./squashfs-root/AppRun --version
+
+# Optional: exposing nvim globally.
+sudo mv squashfs-root /
+sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+nvim
+```
+
+2. Install lua
+
+```bash
+sudo apt lua5.1
+```
+
+3. If previously ~/.config/nvim exists, then backup it
+
+```bash
+mv -r ~/.config/nvim.bak
+```
+
+Then run the following command.
+
 ```bash
 git clone https://github.com/Debraj-Das/nvim.git ~/.config/nvim
 ```
+
 4. Only run nvim and start installing all nessary plugins itself. It will take some time for first time.
+
+5. Install ripgrep command line tool for regex searching inside neovim
+
+```bash
+sudo apt install ripgrep
+```
 
 **Enjoy your new neovim setup.**
 
 ## Some useful information about neovim setup
-1. Debraj Das setting present in lua/debraj/ directory.
-2. plugins are present in lua/plugins/ directory.
+
+1. core setting present in lua/core/
+2. My setting present in lua/debraj/
+3. plugins are present in lua/plugins/
 
 ## Some details about neovim setup
-1. leader key is space key. if you want to change it, then change it in init.lua file.
+
+1. leader key is space key. if you want to change it, then change it in lua/core/keybinding.lua file.
 2. clipboard is enabled according to wsl clipboard. if you want to change it in lua/debraj/clipboard.lua file.
-3. keymappings are present in lua/debraj/remap.lua file.
-4. basic settings are present in lua/debraj/setup.lua file.
+3. keymappings are present in keybinding files.
+4. snippets are present inside of snippets/ and it follow the luasnippets.
 
 ## Some tutorials for using neovim
+
 1. [master in vim](https://www.youtube.com/watch?v=wlR5gYd6um0)
 2. [marks and fold](https://www.youtube.com/watch?v=ovRqGybIg1Q&t=8s)
 3. [spcial characters](https://www.youtube.com/watch?v=Za5GRXP1ycM)
 4. [vim tutorial](https://www.youtube.com/playlist?list=PL13bz4SHGmRxlZVmWQ9DvXo1fEg4UdGkr)
 
 ## Documentation
-1. [Snippets](https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md)
 
+1. [Snippets](https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md)
 
 Here’s a comprehensive list of directories and files typically used in a well-structured Neovim configuration. This structure is modular and scalable, enabling you to organize settings, plugins, and custom scripts effectively.
 
 ---
 
 ### **1. Core Configuration Files**
+
 These are the main files/directories in Neovim's configuration:
 
 #### **init.lua**
+
 - The primary entry point for Neovim configurations.
 - Can source other Lua modules or configure plugins.
 
 Example:
+
 ```lua
 -- Load settings
 require("settings")
@@ -57,9 +101,11 @@ require("keymaps")
 ---
 
 ### **2. `lua/` Directory**
+
 This is where you can organize Lua modules for better modularity.
 
 #### **Structure**
+
 ```
 lua/
 ├── settings.lua        -- General settings and options
@@ -77,10 +123,12 @@ lua/
 ---
 
 ### **3. `plugin/` Directory**
+
 - Automatically loaded on startup.
 - Typically used by Vim/Neovim plugins or user-defined startup scripts.
 
 #### **Structure**
+
 ```
 plugin/
 ├── plugin1.vim         -- Plugin-specific configuration
@@ -89,7 +137,9 @@ plugin/
 ```
 
 #### Example:
+
 File: `plugin/myplugin.vim`
+
 ```vim
 " Plugin-specific configuration
 set number
@@ -98,10 +148,12 @@ set number
 ---
 
 ### **4. `after/` Directory**
+
 - Overrides configurations defined earlier.
 - Useful for customizing plugin behavior or adding settings that must load after everything else.
 
 #### **Structure**
+
 ```
 after/
 ├── plugin/             -- Overrides for plugins
@@ -115,7 +167,9 @@ after/
 ```
 
 #### Example:
+
 File: `after/plugin/treesitter.lua`
+
 ```lua
 require("nvim-treesitter.configs").setup({
   highlight = { enable = true },
@@ -126,10 +180,12 @@ require("nvim-treesitter.configs").setup({
 ---
 
 ### **5. `ftplugin/` Directory**
+
 - Filetype-specific settings are loaded automatically for certain file types.
 - Useful for setting unique options for specific languages.
 
 #### **Structure**
+
 ```
 ftplugin/
 ├── python.lua          -- Python-specific settings
@@ -138,7 +194,9 @@ ftplugin/
 ```
 
 #### Example:
+
 File: `ftplugin/python.lua`
+
 ```lua
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
@@ -148,10 +206,12 @@ vim.opt.tabstop = 4
 ---
 
 ### **6. `autoload/` Directory**
+
 - Contains reusable utility functions or scripts.
 - Lua files are loaded on demand using `require`.
 
 #### **Structure**
+
 ```
 autoload/
 ├── utils.vim           -- Utility Vim functions
@@ -159,7 +219,9 @@ autoload/
 ```
 
 #### Example:
+
 File: `autoload/utils.lua`
+
 ```lua
 local M = {}
 
@@ -173,16 +235,20 @@ return M
 ---
 
 ### **7. `colors/` Directory**
+
 - Contains custom color schemes.
 
 #### **Structure**
+
 ```
 colors/
 └── mytheme.vim
 ```
 
 #### Example:
+
 File: `colors/mytheme.vim`
+
 ```vim
 highlight Normal ctermbg=none
 highlight Comment ctermfg=DarkGray
@@ -191,9 +257,11 @@ highlight Comment ctermfg=DarkGray
 ---
 
 ### **8. `snippets/` Directory**
+
 - Contains snippet files for use with snippet engines like `luasnip` or `ultisnips`.
 
 #### **Structure**
+
 ```
 snippets/
 ├── lua.snippets        -- Lua snippets
@@ -204,9 +272,11 @@ snippets/
 ---
 
 ### **9. `spell/` Directory**
+
 - Contains spell files for custom spell checking.
 
 #### **Structure**
+
 ```
 spell/
 ├── en.utf-8.add        -- Custom English words
@@ -216,9 +286,11 @@ spell/
 ---
 
 ### **10. `session/` Directory**
+
 - Used to store session files for restoring workspace layouts.
 
 #### **Structure**
+
 ```
 session/
 └── my_session.vim
@@ -227,9 +299,11 @@ session/
 ---
 
 ### **11. `undodir/` Directory**
+
 - Stores undo history files when `set undofile` is enabled.
 
 #### **Structure**
+
 ```
 undodir/
 └── 1A2B3C4D.undo
@@ -238,9 +312,11 @@ undodir/
 ---
 
 ### **12. `swap/` Directory**
+
 - Stores swap files for unsaved buffers.
 
 #### **Structure**
+
 ```
 swap/
 └── myfile.swp
@@ -249,9 +325,11 @@ swap/
 ---
 
 ### **13. `backup/` Directory**
+
 - Stores backup files when `set backup` is enabled.
 
 #### **Structure**
+
 ```
 backup/
 └── myfile~
@@ -260,16 +338,20 @@ backup/
 ---
 
 ### **14. `templates/` Directory**
+
 - Contains templates for creating new files with specific content.
 
 #### **Structure**
+
 ```
 templates/
 └── skeleton.py
 ```
 
 #### Example:
+
 File: `templates/skeleton.py`
+
 ```python
 #!/usr/bin/env python3
 
@@ -289,6 +371,7 @@ if __name__ == "__main__":
 ---
 
 ### **Full Example Structure**
+
 ```
 ~/.config/nvim/
 ├── init.lua
@@ -333,4 +416,3 @@ if __name__ == "__main__":
 ```
 
 ---
-
