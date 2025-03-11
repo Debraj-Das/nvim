@@ -14,3 +14,11 @@ vim.o.backup = false
 
 -- Set clipboard to unnamed and unnamedplus
 -- vim.o.clipboard = "unnamed,unnamedplus"
+
+-- treate the html extension file as djangohtml
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+	pattern = "*.html",
+	callback = function()
+		vim.bo.filetype = "html.htmldjango"
+	end,
+})
