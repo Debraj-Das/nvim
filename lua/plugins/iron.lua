@@ -20,7 +20,7 @@ return {
 					python = {
 						command = { "ipython", "--no-autoindent" }, -- or { "ipython", "--no-autoindent" }
 						format = common.bracketed_paste_python,
-						block_dividers = { "# %%", "#%%" },
+						block_dividers = { "# %%", "#%%", "# In", "##" },
 					}
 				},
 				-- set the file type of the newly created repl to ft
@@ -61,9 +61,9 @@ return {
 				-- toggle_repl_with_cmd_2 = "<leader>rh",
 				restart_repl = "<leader>rR", -- calls `IronRestart` to restart the repl
 				-- send_motion = "<leader>rc",
-				visual_send = "<leader>rs",
+				visual_send = "<leader>l",
 				-- send_file = "<leader>rf",
-				-- send_line = "<leader>rl",
+				send_line = "<leader>l",
 				-- send_paragraph = "<leader>rp",
 				-- send_until_cursor = "<leader>ru",
 				-- send_mark = "<leader>rm",
