@@ -5,7 +5,7 @@ return {
 		local view = require("iron.view")
 		local common = require("iron.fts.common")
 
-		iron.setup {
+		iron.setup({
 			config = {
 				-- Whether a repl should be discarded or not
 				scratch_repl = true,
@@ -15,13 +15,13 @@ return {
 					sh = {
 						-- Can be a table or a function that
 						-- returns a table (see below)
-						command = { "bash" }
+						command = { "bash" },
 					},
 					python = {
 						command = { "ipython", "--no-autoindent" }, -- or { "ipython", "--no-autoindent" }
 						format = common.bracketed_paste_python,
 						block_dividers = { "# %%", "#%%", "# In", "##" },
-					}
+					},
 				},
 				-- set the file type of the newly created repl to ft
 				-- bufnr is the buffer id of the REPL and ft is the filetype of the
@@ -48,7 +48,6 @@ return {
 				--   view.split.vertical.rightbelow("%40"), -- cmd_1: open a repl to the right
 				--   view.split.rightbelow("%25")  -- cmd_2: open a repl below
 				-- }
-
 			},
 			-- Iron doesn't set keymaps by default anymore.
 			-- You can set them here or manually add keymaps to the functions in iron.core
@@ -61,14 +60,14 @@ return {
 				-- toggle_repl_with_cmd_2 = "<leader>rh",
 				restart_repl = "<leader>rR", -- calls `IronRestart` to restart the repl
 				-- send_motion = "<leader>rc",
-				visual_send = "<leader>l",
+				visual_send = "<leader>rl",
 				-- send_file = "<leader>rf",
-				send_line = "<leader>l",
+				send_line = "<leader>rl",
 				-- send_paragraph = "<leader>rp",
 				-- send_until_cursor = "<leader>ru",
 				-- send_mark = "<leader>rm",
-				send_code_block = "<leader>j",
-				send_code_block_and_move = "<leader>k",
+				send_code_block = "<leader>rk",
+				send_code_block_and_move = "<leader>rj",
 				-- mark_motion = "<leader>mc",
 				-- mark_visual = "<leader>mc",
 				-- remove_mark = "<leader>md",
@@ -80,13 +79,13 @@ return {
 			-- If the highlight is on, you can change how it looks
 			-- For the available options, check nvim_set_hl
 			highlight = {
-				italic = true
+				italic = true,
 			},
 			ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
-		}
+		})
 
 		-- iron also has a list of commands, see :h iron-commands for all available commands
-		vim.keymap.set('n', '<leader>rf', '<cmd>IronFocus<cr>')
-		vim.keymap.set('n', '<leader>rh', '<cmd>IronHide<cr>')
-	end
+		vim.keymap.set("n", "<leader>rf", "<cmd>IronFocus<cr>")
+		vim.keymap.set("n", "<leader>rh", "<cmd>IronHide<cr>")
+	end,
 }
