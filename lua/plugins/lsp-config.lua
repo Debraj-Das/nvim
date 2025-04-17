@@ -18,6 +18,7 @@ return {
 					"lua_ls",
 					"quick_lint_js",
 					"pyright",
+					"clangd",
 				},
 			})
 		end,
@@ -40,6 +41,15 @@ return {
 			})
 
 			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.clangd.setup({
+				on_attach = function(client, bufnr)
+					client.server_capabilities.signatureHelpProvider = false
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.semanticTokensProvider = nil
+				end,
 				capabilities = capabilities,
 			})
 
