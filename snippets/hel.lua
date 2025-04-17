@@ -13,7 +13,7 @@ local f = ls.function_node
 local r = ls.restore_node
 
 ls.add_snippets("lua", {
-s("class", {
+	s("class", {
 		-- Choice: Switch between two different Nodes, first parameter is its position, second a list of nodes.
 		c(1, {
 			t("public "),
@@ -43,5 +43,5 @@ s("class", {
 		t({ "", "\t" }),
 		i(0),
 		t({ "", "}" }),
-	})
+	}),
 })
