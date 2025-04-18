@@ -1,3 +1,6 @@
+-- notification control
+require("debraj.notification")
+
 -- clipboard setting
 require("debraj.clipboard")
 
