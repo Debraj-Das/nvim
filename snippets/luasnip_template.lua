@@ -3,12 +3,13 @@ local fmta = require("luasnip.extras.fmt").fmta
 
 local s = ls.snippet
 local i = ls.insert_node
+local t = ls.text_node
 
 ls.add_snippets("lua", {
 	s(
 		"st_luasnip",
 		fmta(
-			[=[
+			[[
 local ls = require("luasnip")
 local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
@@ -24,21 +25,29 @@ local sn = ls.snippet_node
 ls.add_snippets("<language>", {
 	s(
 		"<tigger>",
-		fmta([[
-<string>
-		]],
+		fmta([=[
+	<string>
+	
+	<lt>finish<gt>
+		]=],
 		{
-			<field>
+			<lts>,
+			<gts>,
+			<field>,
 		})
 	),
 })
 <finish>
-		]=],
+		]],
 			{
 				language = i(1),
 				tigger = i(2),
-				string = i(3, "Hello <name>"),
-				field = i(4, "name = i(0)"),
+				string = i(3),
+				lt = t("<"),
+				gt = t(">"),
+				lts = t("lt = t('<')"),
+				gts = t("gt = t('>')"),
+				field = t("finish = i(0)"),
 				finish = i(0),
 			}
 		)
