@@ -19,6 +19,7 @@ return {
 					"quick_lint_js",
 					"pyright",
 					"clangd",
+					"bashls",
 				},
 			})
 		end,
@@ -41,6 +42,10 @@ return {
 			})
 
 			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.bashls.setup({
 				capabilities = capabilities,
 			})
 

@@ -16,6 +16,8 @@ return {
 				null_ls.builtins.formatting.clang_format.with({
 					extra_args = { "--style", "{IndentWidth: 4, TabWidth: 4, UseTab: Never}" },
 				}),
+
+				null_ls.builtins.formatting.shfmt,
 			},
 
 			on_attach = function(client, bufnr)
