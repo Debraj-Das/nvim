@@ -16,10 +16,11 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"quick_lint_js",
+					"ts_ls",
 					"pyright",
 					"clangd",
 					"bashls",
+					-- "quick_lint_js",
 				},
 			})
 		end,
@@ -33,7 +34,11 @@ return {
 			-- lsp server setup (install the server using mason and config it setup below)
 			local lspconfig = require("lspconfig")
 
-			lspconfig.quick_lint_js.setup({
+			-- lspconfig.quick_lint_js.setup({
+			-- 	capabilities = capabilities,
+			-- })
+
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
 

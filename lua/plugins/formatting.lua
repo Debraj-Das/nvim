@@ -8,7 +8,15 @@ return {
 				-- lua
 				null_ls.builtins.formatting.stylua,
 				-- JS
-				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.prettier.with({
+					extra_args = {
+						"--semi=false",
+						"--tab-width=4",
+						"--use-tabs=false",
+						-- ... other command-line arguments ...
+					},
+				}),
+
 				-- python
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
