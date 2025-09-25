@@ -47,6 +47,13 @@ return {
 			})
 
 			lspconfig.pyright.setup({
+				settings = {
+					python = {
+						analysis = {
+							typeCheckingMode = "off", -- Set type-checking mode to off
+						},
+					},
+				},
 				capabilities = capabilities,
 			})
 
