@@ -15,6 +15,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
+					"jdtls",
 					"lua_ls",
 					"ts_ls",
 					"pyright",
@@ -37,6 +38,9 @@ return {
 			-- lspconfig.quick_lint_js.setup({
 			-- 	capabilities = capabilities,
 			-- })
+			lspconfig.jdtls.setup({
+				capabilities = capabilities,
+			})
 
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
